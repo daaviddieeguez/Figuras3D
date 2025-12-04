@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { StyleSheet, View } from 'react-native';
 import Box from './components/Box';
+import Controls from './components/Controls';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         
         <Box props={[-1.2, 0, 0]} />
         
+        <Controls />
       </Canvas>
     </View>
   );
