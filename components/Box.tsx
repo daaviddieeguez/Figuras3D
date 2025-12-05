@@ -3,11 +3,11 @@ import React, { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from 'three';
 
-type boxProps = {
-  props: [number, number, number];
+type BoxProps = {
+  position?: [number, number, number];
 };
 
-const Box = (props: boxProps) => {
+const Box = ({ position = [0,0,0] }: BoxProps) => {
   const meshRef = useRef<THREE.Mesh>(null!);
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
@@ -17,8 +17,8 @@ const Box = (props: boxProps) => {
 //   ));
   return (
     <mesh
-      {...props}
       ref={meshRef}
+      position={position}
       scale={active ? 1.5 : 1}
       onClick={() => setActive(!active)}
       onPointerOver={() => setHover(true)}
